@@ -1,0 +1,20 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;    
+    font-family: Montserrat , sans-serif;
+  }
+  #app {
+    all: unset; 
+    width: 100%; 
+    height: auto; 
+    display: contents; 
+  }
+html {
+  scroll-behavior: smooth;
+}
+body{
+  background-color: #000000;
+  color: #fff;
+}
