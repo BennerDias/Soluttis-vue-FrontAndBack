@@ -23,6 +23,43 @@ const createForm = async (req, res) => {
     res.status(500).send("Erro ao criar formulário.");
   }
 };
+const updateForm = async (req, res) => {
+  const formId = req.params.id;
+  const { nome, email, telefone, empresa } = req.body;
+
+   // Verificação para garantir que os campos não estão vazios
+   if (!nome || !email || !telefone || !empresa) {
+    return res.status(400).send("Todos os campos são obrigatórios.");
+  }
+
+  try {
+    // Atualização no banco de dados
+    await pool.query(
+      "UPDATE forms SET nome = $1, email = $2, telefone = $3, empresa = $4 WHERE id = $5",
+      [nome, email, telefone, empresa, formId]
+    );
+
+    res.status(200).send("Formulário atualizado com sucesso."); 
+  }
+  catch (error) {
+    console.error("Erro ao atualizar formulário:", error);
+    res.status(500).send("Erro ao atualizar formulário.");
+  }
+};
+
+const deleteForm = async (req, res) => {
+  const formId = req.params.id;
+
+  try {
+    // Exclusão no banco de dados
+    await pool.query("DELETE FROM forms WHERE id = $1", [formId]);
+
+    res.status(200).send("Formulário excluído com sucesso."); 
+  } catch (error) {
+    console.error("Erro ao excluir formulário:", error);
+    res.status(500).send("Erro ao excluir formulário.");  
+  }
+};
 
 const getForms = async (req, res) => {
   try {
@@ -36,4 +73,4 @@ const getForms = async (req, res) => {
   }
 };
 
-module.exports = { createForm, getForms };
+module.exports = { createForm, getForms, updateForm, deleteForm };

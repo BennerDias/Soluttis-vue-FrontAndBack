@@ -4,7 +4,7 @@
           <div id="SejaParceiroBox" class="d-flex">
               <img class="p-2 flex-fill" src="/images/parceiros.jpg"  alt="">
               <div id="clienteDados" class="p-2 flex-fill d-flex align-items-end d-flex justify-content-end">
-                  <form id="formdata" @submit.prevent="dataReceived">
+                  <form id="formdata" @submit.prevent="dataReceived" style="color: white; font-weight: bold;">
                       <h2>Fale conosco</h2>
                       <input type="text" v-model="FormData.nome" placeholder="Nome">
                       <input type="text" v-model="FormData.email" placeholder="Email">
@@ -44,10 +44,10 @@ const errorModal = () => {
 async function formSubmit(){
   try {
     const resposta = await fetch('http://localhost:5000/api/forms', {
-      method: 'POST', // Método HTTP (GET, POST, etc.)
+      method: 'POST', 
       headers: {
-        'Content-Type': 'application/json', // Tipo de conteúdo
-        'Authorization': 'Bearer SEU_TOKEN_AQUI' // Se precisar de autenticação
+        'Content-Type': 'application/json', 
+        'Authorization': 'Bearer SEU_TOKEN_AQUI' 
       },
       body: JSON.stringify({
         nome: FormData.value.nome,
@@ -128,12 +128,14 @@ const dataReceived = () => {
   background-color: rgb(29, 29, 29);
 }
 #formdata input {
+  color: #ffffff;
   font-weight: lighter;
   font-size: 0.8rem;
   border: none;
   border-radius: 5px;
   background-color: rgb(46, 46, 46);
 }
+
 #formdata h2 {
   font-size: 2.5rem;
   font-weight: bolder;
@@ -143,7 +145,6 @@ const dataReceived = () => {
   border-radius: 5px;
 }
 #formdata input:focus {
-  color: #037382;
   box-shadow: 0 0 5px #037382;
 }
 </style>

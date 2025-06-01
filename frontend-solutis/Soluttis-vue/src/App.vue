@@ -18,7 +18,7 @@
   import quemSomos from '@/components/quemSomos.vue'
   import ParceirosComp from '@/components/ParceirosComp.vue'
   import SociosComp from '@/components/SociosComp.vue'
-  import CardsClientes from './components/CardsClientes.vue'
+  import CardsClientes from './components/ListaDeClientes.vue'
   import {ref} from 'vue'  
   import SejaParceiro from './components/SejaParceiro.vue'
 

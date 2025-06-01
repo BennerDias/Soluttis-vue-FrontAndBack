@@ -1,7 +1,7 @@
 <template>
   <div class="menu">
     <div id="logo" style="width: 250px;">
-      <a href="#home"><img src="/logobranco.png" alt=""></a>
+      <a href="/"><img src="/logobranco.png" alt=""></a>
     </div>
   <ul class="menu-items" style="display: flex; list-style: none; margin: 0; padding: 0; font-weight: 600;">
   <li class="menu-item" style="margin-right: 15px;">
